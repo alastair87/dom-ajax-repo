@@ -8,14 +8,14 @@ function appendPull(pull) {
   container.appendChild(pullLi);
 }
 
-function fetchUserPullRequests() {
+function fetchUserPullRequests(user) {
   var url = "https://api.github.com/repos/codeyourfuture/js-exercises/pulls";
   fetch(url)
     .then(response => {
       return response.json();
     })
     .then(pulls => {
-      pulls.forEach(appendPull);
+      pulls.filter(pull => pull.user.login === user).forEach(appendPull);
     });
 }
 
