@@ -11,7 +11,7 @@ function appendRepoLink(repo) {
   container.appendChild(repoLi);
 }
 
-function appendRepoCount(count) {
+function displayRepoCount(count) {
   var repoCountAnchor = document.querySelector("#repos-count");
   repoCountAnchor.innerText = count;
 }
@@ -24,7 +24,7 @@ function listRepos(user) {
     })
     .then(repos => {
       repos.forEach(appendRepoLink);
-      appendRepoCount(repos.length);
+      displayRepoCount(repos.length);
     });
 }
 
