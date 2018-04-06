@@ -11,6 +11,11 @@ function appendRepoLink(repo) {
   container.appendChild(repoLi);
 }
 
+function appendRepoCount(count) {
+  var repoCountAnchor = document.querySelector("#repos-count");
+  repoCountAnchor.innerText = count;
+}
+
 function listRepos(user) {
   var url = "https://api.github.com/users/" + user + "/repos";
   fetch(url)
@@ -19,6 +24,7 @@ function listRepos(user) {
     })
     .then(repos => {
       repos.forEach(appendRepoLink);
+      appendRepoCount(repos.length);
     });
 }
 
