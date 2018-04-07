@@ -19,4 +19,17 @@ function fetchUserPullRequests(user) {
     });
 }
 
-fetchUserPullRequests("neelunsiri");
+function resetUserPullRequests() {
+  var container = document.querySelector("#pull-requests-list");
+  var pulls = container.querySelectorAll("li");
+  pulls.forEach(pull => container.removeChild(pull));
+}
+
+var input = document.querySelector("#pulluser");
+
+input.addEventListener("keyup", event => {
+  resetUserPullRequests();
+  fetchUserPullRequests(event.target.value);
+});
+
+//fetchUserPullRequests("okolochuks");
