@@ -28,4 +28,12 @@ function listRepos(user) {
     });
 }
 
-listRepos("alastair87");
+var searchBtn = document.querySelector("#search");
+
+searchBtn.addEventListener("click", () => {
+  var input = document.querySelector("#ghuser");
+  clearRepoList();
+  listRepos(input.value);
+});
+
+//listRepos("alastair87");
