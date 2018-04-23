@@ -16,6 +16,12 @@ function displayRepoCount(count) {
   repoCountAnchor.innerText = count;
 }
 
+function clearRepoList() {
+  var container = document.querySelector("#repos-list");
+  var repos = container.querySelectorAll("li");
+  repos.forEach(repo => container.removeChild(repo));
+}
+
 function listRepos(user) {
   var url = "https://api.github.com/users/" + user + "/repos";
   fetch(url)
@@ -23,6 +29,7 @@ function listRepos(user) {
       return response.json();
     })
     .then(repos => {
+      //clearRepoList();
       repos.forEach(appendRepoLink);
       displayRepoCount(repos.length);
     });
