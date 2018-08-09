@@ -1,4 +1,5 @@
 function appendPull(pull) {
+  console.log(pull.title);
   var container = document.querySelector("#pull-requests-list");
   var pullLi = document.createElement("li");
   var pullAnchor = document.createElement("a");
@@ -28,8 +29,6 @@ function resetUserPullRequests() {
 var input = document.querySelector("#pulluser");
 
 input.addEventListener("keyup", event => {
-  resetUserPullRequests();
+  // resetUserPullRequests();
   fetchUserPullRequests(event.target.value);
 });
-
-//fetchUserPullRequests("okolochuks");
